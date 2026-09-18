@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tgz
+.npmrc
+.env
+.env.*
+key2a/
+.venv-*/

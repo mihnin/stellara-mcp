@@ -1,0 +1,31 @@
+# Smithery.ai manifest — https://smithery.ai/docs/build/project-config
+# Lists stellara-mcp in the Smithery catalogue as a stdio server. The only
+# required user input is the Stellara API key; the base URL is an advanced
+# override for self-hosted backends.
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - stellaraApiKey
+    properties:
+      stellaraApiKey:
+        type: string
+        title: Stellara API key
+        description: Access key for the Stellara Swiss Ephemeris API. Get one at https://www.natlex.it/ (Stellara → API access).
+      stellaraApiBaseUrl:
+        type: string
+        title: API base URL (advanced)
+        description: Override only when pointing at a self-hosted Stellara backend.
+        default: https://api.stellara.natlex.it/api/v1/astrology
+  commandFunction: |-
+    (config) => ({
+      command: "node",
+      args: ["dist/index.js"],
+      env: {
+        STELLARA_API_KEY: config.stellaraApiKey,
+        STELLARA_API_BASE_URL: config.stellaraApiBaseUrl || "https://api.stellara.natlex.it/api/v1/astrology"
+      }
+    })
+  exampleConfig:
+    stellaraApiKey: sk_stellara_example_key

@@ -1,0 +1,24 @@
+{
+  "name": "stellara",
+  "version": "0.2.2",
+  "description": "Deterministic Swiss Ephemeris astrology: natal charts, transits, synastry and birth-place resolution as exact JSON (Stellara API) — no hallucinated house cusps.",
+  "mcpServers": {
+    "stellara": {
+      "command": "npx",
+      "args": ["-y", "stellara-mcp@latest"],
+      "env": {
+        "STELLARA_API_KEY": "$STELLARA_API_KEY"
+      },
+      "timeout": 30000
+    }
+  },
+  "settings": [
+    {
+      "name": "Stellara API key",
+      "description": "Your key from https://stellara.natlex.it/#api (Free: 5 requests/day to try it, Stellara API Pro: 5000/day). Sent as X-API-Key to api.stellara.natlex.it; nothing about your users is stored server-side.",
+      "envVar": "STELLARA_API_KEY",
+      "sensitive": true
+    }
+  ],
+  "contextFileName": "GEMINI.md"
+}
