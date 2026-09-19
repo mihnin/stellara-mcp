@@ -12,10 +12,11 @@
     "dist",
     "README.md",
     "LICENSE",
-    "smithery.yaml",
+    "CHANGELOG.md",
     "server.json",
-    "docs",
-    "CHANGELOG.md"
+    "smithery.yaml",
+    "docs/USAGE.ru.md",
+    "docs/GPT_ACTION.ru.md"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
